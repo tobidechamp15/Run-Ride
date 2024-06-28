@@ -37,7 +37,7 @@ const Login = () => {
       localStorage.setItem("userId", user.uid);
       console.log(user);
       setError("User Created Successfully");
-      navigate("/");
+      navigate("/vehicles");
     } catch (error) {
       setError("Invalid Credentials");
     } finally {

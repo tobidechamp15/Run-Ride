@@ -14,7 +14,10 @@ const LandingNav = () => {
           <span>About</span>
           <span>Contact</span>
         </div>
-        <Link className="text-white bg-black py-[12px] px-[55px] rounded-[8px]">
+        <Link
+          to="/signup"
+          className="text-white bg-black py-[12px] px-[55px] rounded-[8px]"
+        >
           Sign Up
         </Link>
       </div>

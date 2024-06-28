@@ -13,8 +13,12 @@ const HeroSection = () => {
           Mobility in RUN made Easier...
         </div>
         <section className=" flex gap-4">
-          <Link className="btn btn-dark px-5 py-2 ">Sign In</Link>
-          <Link className="btn btn-outline-light px-5 py-2 ">Sign Out</Link>
+          <Link to="/login" className="btn btn-dark px-5 py-2 ">
+            Sign In
+          </Link>
+          <Link to="/signup" className="btn btn-outline-light px-5 py-2 ">
+            Sign Up
+          </Link>
         </section>
       </section>
       <section className="flex items-center justify-center md:p-8 w-fit">

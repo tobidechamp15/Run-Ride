@@ -117,7 +117,7 @@ const SignUp = () => {
 
       <div className="flex flex-col gap-[24px] md:w-2/3 items-center justify-center w-full ">
         {error && (
-          <div className="text-red-500 slide-in absolute p-6 top-0 right-[10px] text-xl shadow-xl rounded-lg m-4">
+          <div className="text-red-500 slide-in fixed p-6 top-0 right-[10px] text-xl shadow-xl rounded-lg m-4">
             {error}
           </div>
         )}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import backIconWhite from "../assets/backIconwhite.svg";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [slideOut, setSlideOut] = useState(false);
   const navigate = useNavigate();
 
   const handleEmail = (e) => {
@@ -40,14 +41,26 @@ const Login = () => {
       navigate("/vehicles");
     } catch (error) {
       setError("Invalid Credentials");
+      setSlideOut(false); // Ensure the error message slides in again
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => {
+        setSlideOut(true);
+      }, 3000); // Slide out after 3 seconds
+
+      return () => clearTimeout(timer); // Cleanup the timer on component unmount or when error changes
+    }
+  }, [error]);
+
   return (
     <div className="flex w-full">
       <div className="h-screen md:w-1/3 flex p-3 justify-between items-center bg-[#346357] flex-col text-white">
-        <div className="flex  items-start w-full">
+        <div className="flex items-start w-full">
           <Link to="/">
             <img src={backIconWhite} className="w-[38px] cursor-pointer" />
           </Link>
@@ -69,7 +82,11 @@ const Login = () => {
 
       <div className="flex flex-col gap-[24px] w-2/3 items-center justify-center">
         {error && (
-          <div className="text-red-500 slide-in absolute p-6 top-0 right-[10px] text-xl shadow-xl rounded-lg m-4">
+          <div
+            className={`text-red-500 fixed p-6 top-0 right-[10px] text-xl shadow-xl rounded-lg m-4 ${
+              slideOut ? "slide-out" : "slide-in"
+            }`}
+          >
             {error}
           </div>
         )}

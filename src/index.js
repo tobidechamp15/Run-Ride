@@ -8,6 +8,7 @@ import Landing from "./Component/Landing";
 import SignUp from "./Component/SignUp";
 import Login from "./Component/Login";
 import SetupDriver from "./Component/SetupDriver";
+import DriverInfo from "./Component/DriverInfo";
 
 // Create a router
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/setup-driver",
     element: <SetupDriver />,
+  },
+  {
+    path: "/driver-info",
+    element: <DriverInfo />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

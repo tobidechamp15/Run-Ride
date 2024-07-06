@@ -257,7 +257,7 @@ const SetupDriver = () => {
           <label htmlFor="name">Account Name</label>
         </div>
         <button type="submit" className="btn btn-outline-dark">
-          Submit
+          Proceed
         </button>
       </form>
     </div>

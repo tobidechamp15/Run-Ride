@@ -15,6 +15,7 @@ import backIconWhite from "../assets/backIconwhite.svg";
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [roles, setRoles] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [loading, setLoading] = useState(false);
@@ -50,6 +51,9 @@ const SignUp = () => {
     setPassword(e.target.value);
     setError(null);
   };
+  const handleRoles = (e) => {
+    setRoles(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,9 +67,16 @@ const SignUp = () => {
         password
       );
       createUserProfile(response.user, username, name);
+      localStorage.setItem("userId", response.user.uid);
+
       setError("User Created Successfully");
       await sendEmailVerification(response.user);
-      navigate("/login");
+
+      if (roles === "driver") {
+        navigate("/setup-driver");
+      } else {
+        navigate("/login");
+      }
     } catch (err) {
       setError(err.message);
       setLoading(false);
@@ -82,6 +93,8 @@ const SignUp = () => {
       email: user.email,
       verificationStatus: user.emailVerified,
       name: name,
+      roles: roles,
+
       // Add other user-specific data as needed
     };
     setDoc(userDocRef, userProfileData)
@@ -181,6 +194,21 @@ const SignUp = () => {
               placeholder=" " // Use a space as a placeholder to trigger the label animation
             />
             <label htmlFor="name">Password</label>
+          </div>
+          <div className="inputGroup flex items-center justify-center w-full">
+            <select
+              name="roles"
+              value={roles}
+              onChange={handleRoles}
+              required
+              className="w-full form-control mb-3"
+            >
+              <option value="" disabled>
+                Select Role
+              </option>
+              <option value="student">Student</option>
+              <option value="driver">Driver</option>
+            </select>
           </div>
           <div>
             <button

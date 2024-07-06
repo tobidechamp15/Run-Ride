@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import backIconWhite from "../assets/backIconwhite.svg";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "./firebase/config";
-import { useNavigate } from "react-router-dom";
+import { app, db } from "./firebase/config";
+import { doc, getDoc } from "firebase/firestore";
+// import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,7 +12,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [slideOut, setSlideOut] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -34,16 +35,39 @@ const Login = () => {
         email,
         password
       );
+
       const user = userCredentials.user;
       localStorage.setItem("userId", user.uid);
-      console.log(user);
-      setError("User Created Successfully");
-      navigate("/vehicles");
+
+      const userProfile = await fetchUserProfile(user.uid);
+      console.log("User Profile:", userProfile);
+      // console.log(user);
+
+      if (userProfile.roles === "student") {
+        console.log(userProfile.roles);
+      } else if (userProfile.roles === "driver") {
+        console.log(userProfile.roles);
+      }
+      setError("User Login Successfully");
     } catch (error) {
       setError("Invalid Credentials");
       setSlideOut(false); // Ensure the error message slides in again
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchUserProfile = async (userId) => {
+    try {
+      const userDocRef = doc(db, "users", userId);
+      const userDoc = await getDoc(userDocRef);
+      if (userDoc.exists()) {
+        return userDoc.data();
+      } else {
+        console.log("No such document!");
+      }
+    } catch (error) {
+      console.error("Error fetching user profile:", error);
     }
   };
 
@@ -108,7 +132,7 @@ const Login = () => {
               onChange={handleEmail}
               placeholder=" " // Use a space as a placeholder to trigger the label animation
             />
-            <label htmlFor="name">StudentMail</label>
+            <label htmlFor="name">Email</label>
           </div>
 
           <div className="inputGroup flex items-center justify-center">

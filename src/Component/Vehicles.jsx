@@ -18,7 +18,10 @@ const Vehicles = () => {
         </section>
         <section className="flex justify-center items-center flex-col border  gap-[142px] border-black py-[48px] px-[59px]">
           <img src={car} alt="" />
-          <Link className="text-white bg-black p-3 rounded-[8px] ">
+          <Link
+            to="/vehicles/car"
+            className="text-white bg-black p-3 rounded-[8px] "
+          >
             View All
           </Link>
         </section>

@@ -11,6 +11,7 @@ import SetupDriver from "./Component/SetupDriver";
 import DriverInfo from "./Component/DriverInfo";
 import Bus from "./Component/Bus";
 import Car from "./Component/Car";
+import Keke from "./Component/Keke";
 
 // Create a router
 const router = createBrowserRouter([
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/vehicles/car",
     element: <Car />,
+  },
+  {
+    path: "/vehicles/keke",
+    element: <Keke />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

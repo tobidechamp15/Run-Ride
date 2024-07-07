@@ -32,7 +32,7 @@ const Car = () => {
     };
 
     fetchDrivers();
-  }, []);
+  }, [drivers]);
 
   if (loading) {
     return <div>Loading...</div>;

@@ -4,7 +4,7 @@ import backIconWhite from "../assets/backIconwhite.svg";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app, db } from "./firebase/config";
 import { doc, getDoc } from "firebase/firestore";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [slideOut, setSlideOut] = useState(false);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -45,7 +45,9 @@ const Login = () => {
 
       if (userProfile.roles === "student") {
         console.log(userProfile.roles);
+        navigate("/vehicles");
       } else if (userProfile.roles === "driver") {
+        navigate("/driver-info");
         console.log(userProfile.roles);
       }
       setError("User Login Successfully");

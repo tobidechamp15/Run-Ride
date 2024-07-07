@@ -85,7 +85,7 @@ const SetupDriver = () => {
         setVehicleType("");
         setAccountNumber("");
         setImageSrc(null);
-        navigate("driver-profile");
+        navigate("driver-info");
       } else {
         await setDoc(userDocRef, {
           userName,
@@ -110,6 +110,7 @@ const SetupDriver = () => {
         setAccountNumber("");
         setImageSrc(null);
       }
+      navigate("driver-info");
     } catch (error) {
       console.error("Error adding driver: ", error);
       setMessage(error.message);

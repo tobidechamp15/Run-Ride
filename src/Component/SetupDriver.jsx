@@ -203,6 +203,7 @@ const SetupDriver = () => {
             className="w-full no-spin"
             placeholder=" " // Use a space as a placeholder to trigger the label animation
             value={mobileNumber}
+            pattern="[0-9]{11}"
             onChange={(e) => setMobileNumber(e.target.value)}
           />
           <label htmlFor="name">Mobile Number</label>
@@ -242,6 +243,7 @@ const SetupDriver = () => {
             autoComplete="off"
             className="w-full"
             value={accountNumber}
+            pattern="[0-9]{10}"
             onChange={(e) => setAccountNumber(e.target.value)}
             placeholder=" " // Use a space as a placeholder to trigger the label animation
           />

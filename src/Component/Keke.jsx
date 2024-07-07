@@ -3,7 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase/config"; // Ensure the correct import path
 import Navbar from "./Navbar";
 
-const Bus = () => {
+const Keke = () => {
   const [drivers, setDrivers] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -20,7 +20,7 @@ const Bus = () => {
 
         // Filter drivers with vehicleType of "bus"
         const busDrivers = driversList.filter(
-          (driver) => driver.vehicleType === "bus"
+          (driver) => driver.vehicleType === "keke"
         );
 
         setDrivers(busDrivers);
@@ -101,4 +101,4 @@ const Bus = () => {
   );
 };
 
-export default Bus;
+export default Keke;

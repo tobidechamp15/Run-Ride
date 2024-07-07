@@ -97,6 +97,7 @@ const SetupDriver = () => {
           accountNumber,
           imageSrc,
           userId,
+          name,
         });
 
         setUserName(userName);
@@ -110,7 +111,7 @@ const SetupDriver = () => {
         setAccountNumber("");
         setImageSrc(null);
       }
-      navigate("driver-info");
+      navigate("/driver-info");
     } catch (error) {
       console.error("Error adding driver: ", error);
       setMessage(error.message);

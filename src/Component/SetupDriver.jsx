@@ -179,6 +179,7 @@ const SetupDriver = () => {
             className="w-full font-bold"
             placeholder=" " // Use a space as a placeholder to trigger the label animation
             value={name}
+            disabled
           />
           <label htmlFor="name"> Name</label>
         </div>

@@ -20,7 +20,6 @@ const SignUp = () => {
   const [username, setUsername] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [errorEmail, setErrorEmail] = useState("");
   const navigate = useNavigate();
 
   const handleName = (e) => {
@@ -32,19 +31,9 @@ const SignUp = () => {
     setUsername(e.target.value);
   };
   const handleEmail = (e) => {
-    const inputEmail = e.target.value;
+    setEmail(e.target.value);
     setError(null);
 
-    // Regex pattern to validate email ends with @run.edu.ng
-    const emailPattern = /^[a-zA-Z0-9_.+-]+@run\.edu\.ng$/;
-
-    if (emailPattern.test(inputEmail)) {
-      setEmail(inputEmail);
-      setErrorEmail(""); // Clear error if email is valid
-    } else {
-      setEmail(inputEmail);
-      setErrorEmail("Email must be in the format @run.edu.ng");
-    }
     // setEmail(e.target.value);
   };
   const handlePassword = (e) => {
@@ -164,13 +153,9 @@ const SignUp = () => {
               onChange={handleEmail}
               placeholder=" " // Use a space as a placeholder to trigger the label animation
             />
-            <label htmlFor="name">StudentMail</label>
+            <label htmlFor="name">E-mail</label>
           </div>
-          {errorEmail && (
-            <div className="text-red-600 text-start w-full ps-2">
-              {errorEmail}
-            </div>
-          )}
+
           <div className="inputGroup flex items-center justify-center">
             <input
               type="text"

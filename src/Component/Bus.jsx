@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase/config"; // Ensure the correct import path
 import Navbar from "./Navbar";
+import callImg from "../assets/callImg.svg";
+import chatImg from "../assets/chatImg.svg";
 
 const Bus = () => {
   const [drivers, setDrivers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [bookingDriver, setBookingDriver] = useState(null);
 
   useEffect(() => {
     const fetchDrivers = async () => {
@@ -32,11 +35,23 @@ const Bus = () => {
     };
 
     fetchDrivers();
-  }, [drivers]);
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
   }
+
+  const handleBookRide = (driver) => {
+    // Implement your booking logic here
+    setBookingDriver(driver);
+    console.log("Booking ride with driver:", driver.name);
+  };
+
+  const formatPhoneNumberForWhatsApp = (phoneNumber) => {
+    // Assuming the phone number is already in the correct format
+    // without the '+' sign and contains the country code.
+    return phoneNumber.replace(/\D/g, ""); // Remove non-numeric characters
+  };
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -47,7 +62,7 @@ const Bus = () => {
           {drivers.map((driver) => (
             <li
               key={driver.id}
-              className="bg-white rounded-lg border-1 border-black  p-6"
+              className="bg-white rounded-lg border-1 border-black p-6"
             >
               <div className="flex items-center mb-4">
                 {driver.imageSrc && (
@@ -92,11 +107,52 @@ const Bus = () => {
                 >
                   {driver.isAvailable ? "Available" : "Unavailable"}
                 </span>
+                {driver.isAvailable && (
+                  <>
+                    <button
+                      onClick={() => handleBookRide(driver)}
+                      className="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                    >
+                      Book Ride
+                    </button>
+                  </>
+                )}
               </div>
             </li>
           ))}
         </ul>
       </div>
+
+      {bookingDriver && (
+        <div className="h-screen fixed top-0 left-0 flex justify-center items-center w-full bg-black bg-opacity-75">
+          <div className=" p-8 rounded-lg flex gap-16">
+            <img
+              src={callImg}
+              alt="Call"
+              onClick={() =>
+                (window.location.href = `tel:${bookingDriver.mobileNumber}`)
+              }
+              className="cursor-pointer"
+            />
+            <img
+              src={chatImg}
+              alt="Chat"
+              onClick={() =>
+                (window.location.href = `https://wa.me/${formatPhoneNumberForWhatsApp(
+                  bookingDriver.mobileNumber
+                )}`)
+              }
+              className="cursor-pointer"
+            />
+            <button
+              onClick={() => setBookingDriver(null)}
+              className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

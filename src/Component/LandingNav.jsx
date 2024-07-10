@@ -6,7 +6,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const LandingNav = () => {
   return (
-    <div className="flex nav-bg justify-between py-[25px] px-6 md:px-[100px] items-center fixed w-full z-10 ">
+    <div className="flex nav-bg justify-between py-[25px] px-6 md:px-[100px] items-center md:fixed w-full z-10 ">
       <img src={logo} alt="" />
       <div className="hidden md:flex justify-center items-center">
         <div className="flex text-white gap-[40px] justify-between p-3 items-center  ">

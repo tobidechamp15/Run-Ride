@@ -25,7 +25,7 @@ const HeroSection = () => {
         <img
           src={hero}
           alt="Hero Image"
-          className="max-w-fit h-auto rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 animate-fade-in"
+          className="max-w-fit xsm:w-full h-auto rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 animate-fade-in"
         />
       </section>
     </div>

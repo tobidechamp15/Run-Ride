@@ -44,6 +44,7 @@ a {
   /* Add your CSS rules here */
   .accessibility {
     width: 47%;
+    font-size: 16px;
   }
 
   .accessibility:hover {
@@ -55,6 +56,11 @@ a {
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+  .footer {
+    font-weight: 400;
+    font-size: 16px !important;
+    text-align: center;
   }
 }
 

@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center nav-bg p-[20px]">
+    <nav className="flex justify-between items-center nav-bg p-[20px] w-full">
       <img src={logo} alt="" />
       <div className="hidden md:flex  items-center justify-center mx-6 gap-[20px]">
         <div

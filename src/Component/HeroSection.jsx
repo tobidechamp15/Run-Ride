@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
     <div className="flex w-full xsm:flex-col-reverse px-3 pt-[100px] items-center justify-center gap-[60]   md:h-screen nav-bg ">
-      <section className="flex p-5 m flex-col gap-[24px] md:w-[35%] -fit xsm:items-center">
-        <span className="text-[48px] font-bold text-wrap text-white xsm:text-center ">
+      <section className="flex md:p-5 xsm:pt-5 m flex-col gap-[24px] md:w-[35%] -fit xsm:items-center pb-6">
+        <span className="md:text-[48px] text-[32px] font-bold text-wrap text-white xsm:text-center ">
           Welcome to RunRide Transportation !
         </span>
         <div className=" text-white text-xl">

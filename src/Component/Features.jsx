@@ -7,7 +7,9 @@ const Features = () => {
   return (
     <div className="flex w-full xsm:flex-col p-3 items-center justify-center my-[60px] gap-[60px] container">
       <section className="flex flex-col justify-center md:w-[39%] gap-6">
-        <span className="text-[40px] font-bold ">Why Choose Us</span>
+        <span className="md:text-[40px] text-[24px] font-bold ">
+          Why Choose Us
+        </span>
         <span className=" text-xl font-normal">
           Embarking on your academic journey is an exciting adventure, and at
           Redeemers University, we are here to ensure that navigating your

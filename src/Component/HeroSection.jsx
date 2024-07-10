@@ -13,7 +13,7 @@ const HeroSection = () => {
           Mobility in RUN made Easier...
         </div>
         <section className=" flex gap-4">
-          <Link to="/login" className="btn btn-dark px-5 py-2 ">
+          <Link to="/login" className="btn bg-black text-white px-5 py-2 ">
             Sign In
           </Link>
           <Link to="/signup" className="btn btn-outline-light px-5 py-2 ">

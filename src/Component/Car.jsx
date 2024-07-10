@@ -74,7 +74,7 @@ const Car = () => {
                 )}
                 <div>
                   <p className="text-xl font-semibold">{driver.name}</p>
-                  <p className="text-gray-600">{driver.userName}</p>
+                  {/* <p className="text-gray-600">{driver.userName}</p> */}
                 </div>
               </div>
               <div className="mb-4">
@@ -84,17 +84,17 @@ const Car = () => {
                 <p className="text-gray-800">
                   <strong>Mobile Number:</strong> {driver.mobileNumber}
                 </p>
-                <p className="text-gray-800">
+                {/* <p className="text-gray-800">
                   <strong>Vehicle Type:</strong> {driver.vehicleType}
-                </p>
+                </p> */}
                 <p className="text-gray-800">
                   <strong>Bank Name:</strong> {driver.bankName}
                 </p>
                 <p className="text-gray-800">
-                  <strong>Account Name:</strong> {driver.accountName}
+                  <strong>Account Number:</strong> {driver.accountNumber}
                 </p>
                 <p className="text-gray-800">
-                  <strong>Account Number:</strong> {driver.accountNumber}
+                  <strong>Account Name:</strong> {driver.accountName}
                 </p>
               </div>
               <div className="flex items-center">

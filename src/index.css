@@ -180,3 +180,11 @@ textarea {
 .slide-out {
   animation: slideOutToRightTop 0.5s ease-out forwards;
 }
+
+.driver-image img {
+  height: 100% !important;
+}
+.driver-image {
+  max-width: 250px;
+  max-height: 250px;
+}

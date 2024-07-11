@@ -204,6 +204,7 @@ const SetupDriver = () => {
             placeholder=" " // Use a space as a placeholder to trigger the label animation
             value={mobileNumber}
             pattern="[0-9]{11}"
+            min="0"
             onChange={(e) => setMobileNumber(e.target.value)}
           />
           <label htmlFor="name">Mobile Number</label>

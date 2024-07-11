@@ -56,6 +56,7 @@ a {
     display: flex;
     justify-content: center;
   }
+
   .footer {
     font-weight: 400;
     font-size: 16px !important;
@@ -184,6 +185,7 @@ textarea {
 .driver-image img {
   height: 100% !important;
 }
+
 .driver-image {
   max-width: 250px;
   max-height: 250px;

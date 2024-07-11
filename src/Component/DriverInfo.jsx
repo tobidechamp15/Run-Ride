@@ -67,7 +67,7 @@ const DriverInfo = () => {
   };
   return (
     <div className="flex items-center justify-center flex-col container py-4">
-      <div className="text-4xl text-black font-medium my-6">Driver's Info</div>
+      <div className="text-4xl text-black font-medium my-6">Drivers Info</div>
       <form className="w-[60%] xsm:w-full py-4 flex flex-ol gap-7 items-center flex-wrap">
         <div className="border-dashed border-2 w-fit p-4 border-[#bdbdbd] flex flex-col cursor-pointer driver-image">
           <img src={imageSrc} className="w-full h-full" />

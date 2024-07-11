@@ -85,7 +85,7 @@ const Login = () => {
 
   return (
     <div className="flex w-full">
-      <div className="h-screen md:w-1/3 flex p-3 justify-between items-center bg-[#346357] flex-col text-white">
+      <div className="h-screen md:w-1/3 md:flex hidden p-3 justify-between items-center bg-[#346357] flex-col text-white">
         <div className="flex items-start w-full">
           <Link to="/">
             <img src={backIconWhite} className="w-[38px] cursor-pointer" />

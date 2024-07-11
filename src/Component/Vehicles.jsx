@@ -23,7 +23,10 @@ const Vehicles = () => {
             <span className="text-[16px] text-[#808080]">Napep</span>
             <span className="text-[20px] font-semibold ">3 Passenger Ride</span>
           </div>
-          <Link className="text-white bg-black p-3 rounded-[8px] mt-[35px]">
+          <Link
+            to="/vehicles/keke"
+            className="text-white bg-black p-3 rounded-[8px] mt-[35px]"
+          >
             View All
           </Link>
         </section>

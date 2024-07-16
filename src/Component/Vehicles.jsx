@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "./Navbar";
-import keke from "../assets/keke.svg";
-import car from "../assets/car.svg";
-import bus from "../assets/bus.svg";
+import keke from "../assets/keke.jpg";
+import car from "../assets/car.jpg";
+import bus from "../assets/bus.jpg";
 import { Link } from "react-router-dom";
 
 const Vehicles = () => {

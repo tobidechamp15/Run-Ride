@@ -84,7 +84,7 @@ const Login = () => {
   }, [error]);
 
   return (
-    <div className="flex w-full">
+    <div className="flex w-full min-h-screen ">
       <div className="h-screen md:w-1/3 md:flex hidden p-3 justify-between items-center bg-[#346357] flex-col text-white">
         <div className="flex items-start w-full">
           <Link to="/">
@@ -106,7 +106,16 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-[24px] w-2/3 items-center justify-center">
+      <div className="flex flex-col gap-[24px] md:w-2/3 w-full items-center xsm:justify-evenly justify-center">
+        {" "}
+        <div className="flex md:hidden flex-col items-center justify-center gap-6">
+          <Link to="/" className="logoStyle text-6xl">
+            Run Ride
+          </Link>{" "}
+          <span className="text-3xl  text-start font-semibold">
+            Welcome Back
+          </span>
+        </div>
         {error && (
           <div
             className={`text-red-500 fixed p-6 top-0 right-[10px] text-xl shadow-xl rounded-lg m-4 ${
@@ -116,10 +125,9 @@ const Login = () => {
             {error}
           </div>
         )}
-        <span className="text-3xl w-2/3 text-start font-semibold">
+        <span className="text-3xl xsm:hidden  text-start font-semibold mb-[90px]">
           Welcome Back
         </span>
-
         <form
           className="w-2/3 flex justify-center items-center flex-col gap-[24] "
           onSubmit={handleSubmit}
@@ -159,6 +167,13 @@ const Login = () => {
             </button>
           </div>
         </form>
+        <div className="md:hidden">
+          Do not have an account yet?
+          <Link to="/signup" className="text-blue-400">
+            {" "}
+            Get Started
+          </Link>
+        </div>
       </div>
     </div>
   );

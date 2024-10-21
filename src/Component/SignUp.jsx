@@ -117,20 +117,26 @@ const SignUp = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-[24px] md:w-2/3 items-center justify-center w-full ">
+      <div className="flex  flex-col gap-[24px] md:w-2/3 items-center justify-evenly min-h-screen w-full ">
+        <div className="flex md:hidden flex-col items-center justify-center">
+          <Link to="/" className="logoStyle text-6xl">
+            Run Ride
+          </Link>
+          <span className="my-5 text-2xl text-center">LET GET YOU STARTED</span>
+        </div>
         {error && (
           <div className="text-red-500 slide-in fixed p-6 top-0 right-[10px] text-xl shadow-xl rounded-lg m-4">
             {error}
           </div>
         )}
-        <span className="text-2xl font-medium md:w-2/3 text-start">
-          Create an Account
-        </span>
 
         <form
-          className="md:w-2/3 flex justify-center items-center flex-col gap-[24] w-full p-2 "
+          className="md:w-2/3 flex justify-center items-center flex-col gap-[24]  p-2 w-[80%]"
           onSubmit={handleSubmit}
         >
+          <span className="mb-4 text-2xl font-medium md:w-2/3 text-start">
+            Create an Account
+          </span>{" "}
           <div className="inputGroup flex items-center justify-center">
             <input
               type="text"
@@ -155,7 +161,6 @@ const SignUp = () => {
             />
             <label htmlFor="name">E-mail</label>
           </div>
-
           <div className="inputGroup flex items-center justify-center">
             <input
               type="text"
@@ -206,6 +211,12 @@ const SignUp = () => {
             </button>
           </div>
         </form>
+        <div className="text-center flex flex-wrap gap-2 items-center justify-center md:hidden">
+          Already have an account?
+          <Link to="/login" className="text-blue-400 ">
+            Login
+          </Link>
+        </div>
       </div>
     </div>
   );
